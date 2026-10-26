@@ -1,0 +1,732 @@
+[
+  {
+    "id": "Q-001",
+    "query": "Our checkout returns an internal server error 500 after deployment.",
+    "expected_sources": [
+      "RB-001"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-001": [
+        {
+          "step": 1,
+          "text": "Inspect application error logs around the failed request and correlate request IDs."
+        },
+        {
+          "step": 2,
+          "text": "Compare the first error timestamp with deployment and configuration changes."
+        },
+        {
+          "step": 3,
+          "text": "Inspect the failing dependency and exception type; do not assume every 500 has the same cause."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-001": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-002",
+    "query": "The application processor is at 99 percent and CPU throttling is rising.",
+    "expected_sources": [
+      "RB-002"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-002": [
+        {
+          "step": 1,
+          "text": "Compare CPU usage, request rate and latency over the same interval."
+        },
+        {
+          "step": 2,
+          "text": "Identify the process or container consuming CPU using existing monitoring."
+        },
+        {
+          "step": 3,
+          "text": "Inspect throttling, hot code paths and recent workload changes before proposing capacity changes."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-002": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-003",
+    "query": "Postgres SQL queries exceed the query deadline.",
+    "expected_sources": [
+      "RB-003"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-003": [
+        {
+          "step": 1,
+          "text": "Separate connection acquisition time from query execution time using traces."
+        },
+        {
+          "step": 2,
+          "text": "Inspect database activity for long-running queries and wait events."
+        },
+        {
+          "step": 3,
+          "text": "Compare slow query fingerprints and database resource metrics against the incident window."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-003": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-004",
+    "query": "The container ran out of memory and was OOMKilled.",
+    "expected_sources": [
+      "RB-004"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-004": [
+        {
+          "step": 1,
+          "text": "Compare resident memory and configured container memory limits."
+        },
+        {
+          "step": 2,
+          "text": "Inspect termination reasons and events for evidence of OOM termination."
+        },
+        {
+          "step": 3,
+          "text": "Review memory growth against traffic and recent releases; distinguish a sudden peak from sustained growth."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-004": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-005",
+    "query": "Service hostname lookups return NXDOMAIN.",
+    "expected_sources": [
+      "RB-005"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-005": [
+        {
+          "step": 1,
+          "text": "Identify the exact hostname, namespace and resolution error without collecting credentials."
+        },
+        {
+          "step": 2,
+          "text": "Review resolver configuration and compare the expected service name with service discovery records."
+        },
+        {
+          "step": 3,
+          "text": "Inspect DNS service health and existing DNS logs for the same failure window."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-005": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-006",
+    "query": "API p99 response time increased although requests still succeed.",
+    "expected_sources": [
+      "RB-006"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-006": [
+        {
+          "step": 1,
+          "text": "Compare p50, p95 and p99 latency with the baseline and request volume."
+        },
+        {
+          "step": 2,
+          "text": "Inspect distributed traces to separate application time from dependency time."
+        },
+        {
+          "step": 3,
+          "text": "Review resource saturation and recent releases for the slowest endpoint."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-006": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-007",
+    "query": "Customers get HTTP 503 and the service has no healthy endpoints.",
+    "expected_sources": [
+      "RB-007"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-007": [
+        {
+          "step": 1,
+          "text": "Review the service endpoint list and backend readiness state."
+        },
+        {
+          "step": 2,
+          "text": "Inspect workload events and health check failures during the outage."
+        },
+        {
+          "step": 3,
+          "text": "Compare desired and available replicas and correlate with deployment events."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-007": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-008",
+    "query": "The reverse proxy returns 502 bad gateway for upstream responses.",
+    "expected_sources": [
+      "RB-008"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-008": [
+        {
+          "step": 1,
+          "text": "Identify which proxy generated the 502 from existing response metadata."
+        },
+        {
+          "step": 2,
+          "text": "Inspect gateway logs for upstream connection or response errors."
+        },
+        {
+          "step": 3,
+          "text": "Compare upstream health, ports and protocol configuration with the expected route."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-008": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-009",
+    "query": "The gateway reports HTTP 504 while waiting on the backend.",
+    "expected_sources": [
+      "RB-009"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-009": [
+        {
+          "step": 1,
+          "text": "Review gateway timing logs to identify the slow upstream."
+        },
+        {
+          "step": 2,
+          "text": "Compare upstream response duration with the configured gateway deadline."
+        },
+        {
+          "step": 3,
+          "text": "Inspect dependency latency and request traces before considering timeout changes."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-009": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-010",
+    "query": "Writes fail with no space left on the filesystem.",
+    "expected_sources": [
+      "RB-010"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-010": [
+        {
+          "step": 1,
+          "text": "Inspect filesystem capacity and inode usage in existing host monitoring."
+        },
+        {
+          "step": 2,
+          "text": "Identify growth in logs, temporary files and application data from storage reports."
+        },
+        {
+          "step": 3,
+          "text": "Check retention policies and ownership before requesting any cleanup."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-010": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-011",
+    "query": "Clients report an expired TLS certificate during handshake.",
+    "expected_sources": [
+      "RB-011"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-011": [
+        {
+          "step": 1,
+          "text": "Inspect the presented certificate expiry, hostname coverage and chain using approved diagnostics."
+        },
+        {
+          "step": 2,
+          "text": "Compare the client clock and trust configuration with expected settings."
+        },
+        {
+          "step": 3,
+          "text": "Review certificate deployment records to identify missing or stale intermediate certificates."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-011": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-012",
+    "query": "Protected API requests return 401 after a token expires.",
+    "expected_sources": [
+      "RB-012"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-012": [
+        {
+          "step": 1,
+          "text": "Review the response authentication challenge and redacted authentication logs."
+        },
+        {
+          "step": 2,
+          "text": "Check token expiry and intended audience through approved identity tooling without pasting the token."
+        },
+        {
+          "step": 3,
+          "text": "Compare the authentication configuration with the identity provider settings."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-012": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-013",
+    "query": "An authenticated user receives 403 permission denied.",
+    "expected_sources": [
+      "RB-013"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-013": [
+        {
+          "step": 1,
+          "text": "Identify the rejected operation and resource category."
+        },
+        {
+          "step": 2,
+          "text": "Compare assigned roles with the documented access policy using approved access records."
+        },
+        {
+          "step": 3,
+          "text": "Review authorization audit events and recent policy changes."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-013": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-014",
+    "query": "Our clients get HTTP 429 too many requests after a burst.",
+    "expected_sources": [
+      "RB-014"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-014": [
+        {
+          "step": 1,
+          "text": "Inspect rate limit response metadata and any Retry-After value."
+        },
+        {
+          "step": 2,
+          "text": "Compare request volume and client retry patterns with configured quotas."
+        },
+        {
+          "step": 3,
+          "text": "Review whether retries amplify traffic and document the affected client category."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-014": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-015",
+    "query": "Kubernetes shows CrashLoopBackOff and the container keeps restarting.",
+    "expected_sources": [
+      "RB-015"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-015": [
+        {
+          "step": 1,
+          "text": "Inspect previous termination reason, exit code and restart count."
+        },
+        {
+          "step": 2,
+          "text": "Review previous container logs and workload events around the first exit."
+        },
+        {
+          "step": 3,
+          "text": "Compare entrypoint and non-secret configuration with the last working deployment."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-015": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-016",
+    "query": "Pods show ImagePullBackOff when fetching an image from the registry.",
+    "expected_sources": [
+      "RB-016"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-016": [
+        {
+          "step": 1,
+          "text": "Inspect workload events for missing image, registry access or network errors."
+        },
+        {
+          "step": 2,
+          "text": "Compare the image name and tag with the release manifest."
+        },
+        {
+          "step": 3,
+          "text": "Review registry availability and credential reference configuration without reading credential values."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-016": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-017",
+    "query": "A running pod is not ready because its readiness probe fails.",
+    "expected_sources": [
+      "RB-017"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-017": [
+        {
+          "step": 1,
+          "text": "Review readiness probe events, path, port and timeout settings."
+        },
+        {
+          "step": 2,
+          "text": "Inspect application startup and dependency health at the same time."
+        },
+        {
+          "step": 3,
+          "text": "Compare probe settings with the application health endpoint contract."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-017": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-018",
+    "query": "Every database connection is busy and callers wait for the pool.",
+    "expected_sources": [
+      "RB-018"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-018": [
+        {
+          "step": 1,
+          "text": "Compare active, idle and waiting pool connections with configured limits."
+        },
+        {
+          "step": 2,
+          "text": "Inspect database sessions and transaction age to identify long-held connections."
+        },
+        {
+          "step": 3,
+          "text": "Compare request concurrency with pool capacity and application connection lifecycle metrics."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-018": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-019",
+    "query": "Postgres transactions wait on locks held by another session.",
+    "expected_sources": [
+      "RB-019"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-019": [
+        {
+          "step": 1,
+          "text": "Inspect lock monitoring and correlate waiting sessions with database activity."
+        },
+        {
+          "step": 2,
+          "text": "Identify blocking transaction age and the affected relation using approved monitoring."
+        },
+        {
+          "step": 3,
+          "text": "Review transaction boundaries and concurrent workload changes without cancelling sessions."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-019": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-020",
+    "query": "TCP connections to the application port are immediately refused.",
+    "expected_sources": [
+      "RB-020"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-020": [
+        {
+          "step": 1,
+          "text": "Verify the expected destination port and service-to-container port mapping."
+        },
+        {
+          "step": 2,
+          "text": "Review listener status from existing telemetry and compare backend readiness."
+        },
+        {
+          "step": 3,
+          "text": "Inspect network and service events for a stopped process or incorrect route."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-020": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-021",
+    "query": "Network traffic has packet loss and TCP retransmissions.",
+    "expected_sources": [
+      "RB-021"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-021": [
+        {
+          "step": 1,
+          "text": "Compare network error and retransmission metrics with the incident timeline."
+        },
+        {
+          "step": 2,
+          "text": "Identify whether failures share a node, zone or destination."
+        },
+        {
+          "step": 3,
+          "text": "Review interface health and recent network policy changes from existing records."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-021": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-022",
+    "query": "Pod events show FailedMount for a persistent volume claim.",
+    "expected_sources": [
+      "RB-022"
+    ],
+    "supported": true,
+    "expected_resolution_steps": {
+      "RB-022": [
+        {
+          "step": 1,
+          "text": "Inspect workload and volume events for attachment or mount errors."
+        },
+        {
+          "step": 2,
+          "text": "Review claim binding status, storage class and volume availability."
+        },
+        {
+          "step": 3,
+          "text": "Compare access modes and node placement with the storage requirements."
+        }
+      ]
+    },
+    "human_required_step_numbers": {
+      "RB-022": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "Q-023",
+    "query": "How do I bake a chocolate cake?",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  },
+  {
+    "id": "Q-024",
+    "query": "Who won the football match?",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  },
+  {
+    "id": "Q-025",
+    "query": "Write a wedding poem.",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  },
+  {
+    "id": "Q-026",
+    "query": "How do I reset a forgotten VPN password?",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  },
+  {
+    "id": "Q-027",
+    "query": "How do I restore a deleted database backup?",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  },
+  {
+    "id": "Q-028",
+    "query": "What is the stock price today?",
+    "expected_sources": [],
+    "supported": false,
+    "expected_resolution_steps": {},
+    "human_required_step_numbers": {}
+  }
+]

@@ -1,0 +1,442 @@
+[
+  {
+    "id": "RB-001",
+    "title": "HTTP 500 application error",
+    "tags": "http 500 internal server error exception application",
+    "symptoms": "Requests fail with an internal server error after a release.",
+    "steps": [
+      "Inspect application error logs around the failed request and correlate request IDs.",
+      "Compare the first error timestamp with deployment and configuration changes.",
+      "Inspect the failing dependency and exception type; do not assume every 500 has the same cause."
+    ],
+    "evidence": "Redacted stack trace, affected endpoint, deployment time and error rate",
+    "escalation": "Application owner if errors persist or affect critical requests",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-002",
+    "title": "High CPU usage",
+    "tags": "cpu processor utilization saturation throttling",
+    "symptoms": "CPU stays near saturation and requests slow down.",
+    "steps": [
+      "Compare CPU usage, request rate and latency over the same interval.",
+      "Identify the process or container consuming CPU using existing monitoring.",
+      "Inspect throttling, hot code paths and recent workload changes before proposing capacity changes."
+    ],
+    "evidence": "CPU time series, throttling metrics and workload change timeline",
+    "escalation": "Service owner when saturation affects availability",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-003",
+    "title": "Database query timeout",
+    "tags": "database postgres sql query timeout slow queries",
+    "symptoms": "SQL requests exceed their deadline.",
+    "steps": [
+      "Separate connection acquisition time from query execution time using traces.",
+      "Inspect database activity for long-running queries and wait events.",
+      "Compare slow query fingerprints and database resource metrics against the incident window."
+    ],
+    "evidence": "Query fingerprint, duration, wait event and redacted trace",
+    "escalation": "Database owner when timeouts persist",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "PostgreSQL monitoring database activity",
+        "url": "https://www.postgresql.org/docs/current/monitoring.html"
+      }
+    ]
+  },
+  {
+    "id": "RB-004",
+    "title": "Memory pressure and OOM",
+    "tags": "memory ram pressure oom out of memory killed heap",
+    "symptoms": "Memory grows and a process is killed or restarted.",
+    "steps": [
+      "Compare resident memory and configured container memory limits.",
+      "Inspect termination reasons and events for evidence of OOM termination.",
+      "Review memory growth against traffic and recent releases; distinguish a sudden peak from sustained growth."
+    ],
+    "evidence": "Memory time series, termination reason and configured limits",
+    "escalation": "Service owner for profiling and capacity review",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-005",
+    "title": "DNS resolution failure",
+    "tags": "dns domain hostname resolution nxdomain servfail",
+    "symptoms": "A hostname cannot be resolved although other services may work.",
+    "steps": [
+      "Identify the exact hostname, namespace and resolution error without collecting credentials.",
+      "Review resolver configuration and compare the expected service name with service discovery records.",
+      "Inspect DNS service health and existing DNS logs for the same failure window."
+    ],
+    "evidence": "Hostname category, resolver error and DNS service health",
+    "escalation": "Platform or DNS owner if resolution fails across workloads",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes debugging DNS resolution",
+        "url": "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/"
+      }
+    ]
+  },
+  {
+    "id": "RB-006",
+    "title": "API latency increase",
+    "tags": "api latency slow response p95 p99 delay",
+    "symptoms": "API response times increase without a corresponding error spike.",
+    "steps": [
+      "Compare p50, p95 and p99 latency with the baseline and request volume.",
+      "Inspect distributed traces to separate application time from dependency time.",
+      "Review resource saturation and recent releases for the slowest endpoint."
+    ],
+    "evidence": "Endpoint latency distribution and slow trace spans",
+    "escalation": "API owner when latency exceeds the service objective",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-007",
+    "title": "Service unavailable HTTP 503",
+    "tags": "503 service unavailable outage unhealthy backend",
+    "symptoms": "Clients receive 503 responses or no healthy backend is available.",
+    "steps": [
+      "Review the service endpoint list and backend readiness state.",
+      "Inspect workload events and health check failures during the outage.",
+      "Compare desired and available replicas and correlate with deployment events."
+    ],
+    "evidence": "Readiness status, endpoints and availability timeline",
+    "escalation": "On-call service owner immediately for broad outage",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes Debug Services",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+      }
+    ]
+  },
+  {
+    "id": "RB-008",
+    "title": "Bad gateway HTTP 502",
+    "tags": "502 bad gateway proxy upstream invalid response",
+    "symptoms": "A gateway reports an invalid upstream response.",
+    "steps": [
+      "Identify which proxy generated the 502 from existing response metadata.",
+      "Inspect gateway logs for upstream connection or response errors.",
+      "Compare upstream health, ports and protocol configuration with the expected route."
+    ],
+    "evidence": "Gateway error category and upstream health",
+    "escalation": "Gateway and upstream service owners",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-009",
+    "title": "Gateway timeout HTTP 504",
+    "tags": "504 gateway timeout upstream deadline",
+    "symptoms": "A gateway waits too long for an upstream response.",
+    "steps": [
+      "Review gateway timing logs to identify the slow upstream.",
+      "Compare upstream response duration with the configured gateway deadline.",
+      "Inspect dependency latency and request traces before considering timeout changes."
+    ],
+    "evidence": "Gateway duration, deadline and upstream trace",
+    "escalation": "Upstream owner for sustained slow responses",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-010",
+    "title": "Disk space exhausted",
+    "tags": "disk filesystem space full storage no space left",
+    "symptoms": "Writes fail because storage is full.",
+    "steps": [
+      "Inspect filesystem capacity and inode usage in existing host monitoring.",
+      "Identify growth in logs, temporary files and application data from storage reports.",
+      "Check retention policies and ownership before requesting any cleanup."
+    ],
+    "evidence": "Filesystem utilization, inode usage and growth trend",
+    "escalation": "Storage owner; do not delete files during diagnosis",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-011",
+    "title": "TLS certificate failure",
+    "tags": "tls ssl certificate expired handshake trust",
+    "symptoms": "Clients fail TLS validation or report an expired certificate.",
+    "steps": [
+      "Inspect the presented certificate expiry, hostname coverage and chain using approved diagnostics.",
+      "Compare the client clock and trust configuration with expected settings.",
+      "Review certificate deployment records to identify missing or stale intermediate certificates."
+    ],
+    "evidence": "Expiry dates, hostname match and validation error",
+    "escalation": "Certificate or platform owner for renewal review",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN Transport Layer Security",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+      }
+    ]
+  },
+  {
+    "id": "RB-012",
+    "title": "Authentication HTTP 401",
+    "tags": "401 unauthorized authentication login token expired",
+    "symptoms": "Protected requests are rejected as unauthenticated.",
+    "steps": [
+      "Review the response authentication challenge and redacted authentication logs.",
+      "Check token expiry and intended audience through approved identity tooling without pasting the token.",
+      "Compare the authentication configuration with the identity provider settings."
+    ],
+    "evidence": "Status, challenge type and redacted identity error",
+    "escalation": "Identity owner; never request passwords or tokens",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-013",
+    "title": "Authorization HTTP 403",
+    "tags": "403 forbidden authorization permission denied access",
+    "symptoms": "An authenticated client cannot access a resource.",
+    "steps": [
+      "Identify the rejected operation and resource category.",
+      "Compare assigned roles with the documented access policy using approved access records.",
+      "Review authorization audit events and recent policy changes."
+    ],
+    "evidence": "Denied action and policy decision without credentials",
+    "escalation": "Resource owner for access policy review",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-014",
+    "title": "HTTP 429 rate limiting",
+    "tags": "429 too many requests rate limit quota throttled",
+    "symptoms": "Requests are rejected after a traffic burst.",
+    "steps": [
+      "Inspect rate limit response metadata and any Retry-After value.",
+      "Compare request volume and client retry patterns with configured quotas.",
+      "Review whether retries amplify traffic and document the affected client category."
+    ],
+    "evidence": "Request rate, quota and response headers with secrets removed",
+    "escalation": "API owner for quota and retry-policy review",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "MDN HTTP response status codes",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    ]
+  },
+  {
+    "id": "RB-015",
+    "title": "Container crash loop",
+    "tags": "crashloopbackoff container crash restart loop",
+    "symptoms": "A container repeatedly exits and restarts.",
+    "steps": [
+      "Inspect previous termination reason, exit code and restart count.",
+      "Review previous container logs and workload events around the first exit.",
+      "Compare entrypoint and non-secret configuration with the last working deployment."
+    ],
+    "evidence": "Exit code, restart timeline and redacted logs",
+    "escalation": "Application owner for startup failure investigation",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-016",
+    "title": "Container image pull failure",
+    "tags": "imagepullbackoff errimagepull image registry pull",
+    "symptoms": "A workload cannot download its container image.",
+    "steps": [
+      "Inspect workload events for missing image, registry access or network errors.",
+      "Compare the image name and tag with the release manifest.",
+      "Review registry availability and credential reference configuration without reading credential values."
+    ],
+    "evidence": "Image reference and redacted pull error",
+    "escalation": "Release or registry owner",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  },
+  {
+    "id": "RB-017",
+    "title": "Readiness probe failure",
+    "tags": "readiness probe unhealthy not ready health check",
+    "symptoms": "Running containers are excluded from service traffic.",
+    "steps": [
+      "Review readiness probe events, path, port and timeout settings.",
+      "Inspect application startup and dependency health at the same time.",
+      "Compare probe settings with the application health endpoint contract."
+    ],
+    "evidence": "Probe failure category and readiness transition timeline",
+    "escalation": "Application and platform owners",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes Debug Services",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+      }
+    ]
+  },
+  {
+    "id": "RB-018",
+    "title": "Database connection pool exhausted",
+    "tags": "database connection pool exhausted max connections acquisition",
+    "symptoms": "Requests wait for a free database connection.",
+    "steps": [
+      "Compare active, idle and waiting pool connections with configured limits.",
+      "Inspect database sessions and transaction age to identify long-held connections.",
+      "Compare request concurrency with pool capacity and application connection lifecycle metrics."
+    ],
+    "evidence": "Pool wait duration, connection counts and transaction age",
+    "escalation": "Application and database owners",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "PostgreSQL monitoring database activity",
+        "url": "https://www.postgresql.org/docs/current/monitoring.html"
+      }
+    ]
+  },
+  {
+    "id": "RB-019",
+    "title": "Database lock contention",
+    "tags": "database lock blocking deadlock transaction contention",
+    "symptoms": "Transactions wait on locks or report a deadlock.",
+    "steps": [
+      "Inspect lock monitoring and correlate waiting sessions with database activity.",
+      "Identify blocking transaction age and the affected relation using approved monitoring.",
+      "Review transaction boundaries and concurrent workload changes without cancelling sessions."
+    ],
+    "evidence": "Wait chain, transaction age and query fingerprint",
+    "escalation": "Database owner to assess mitigation",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "PostgreSQL viewing locks",
+        "url": "https://www.postgresql.org/docs/current/monitoring-locks.html"
+      }
+    ]
+  },
+  {
+    "id": "RB-020",
+    "title": "Network connection refused",
+    "tags": "network tcp connection refused port listener",
+    "symptoms": "Connections to a service port are immediately refused.",
+    "steps": [
+      "Verify the expected destination port and service-to-container port mapping.",
+      "Review listener status from existing telemetry and compare backend readiness.",
+      "Inspect network and service events for a stopped process or incorrect route."
+    ],
+    "evidence": "Destination service category, port mapping and refusal timestamp",
+    "escalation": "Service or networking owner",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes Debug Services",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+      }
+    ]
+  },
+  {
+    "id": "RB-021",
+    "title": "Packet loss and intermittent connectivity",
+    "tags": "network packet loss intermittent connectivity retransmission",
+    "symptoms": "Requests fail intermittently with retransmissions.",
+    "steps": [
+      "Compare network error and retransmission metrics with the incident timeline.",
+      "Identify whether failures share a node, zone or destination.",
+      "Review interface health and recent network policy changes from existing records."
+    ],
+    "evidence": "Loss trend, affected path and error timestamps",
+    "escalation": "Network owner with affected scope",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes Debug Services",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+      }
+    ]
+  },
+  {
+    "id": "RB-022",
+    "title": "Persistent volume mount failure",
+    "tags": "volume mount failedmount persistent storage pvc pending",
+    "symptoms": "A workload cannot mount its required persistent storage.",
+    "steps": [
+      "Inspect workload and volume events for attachment or mount errors.",
+      "Review claim binding status, storage class and volume availability.",
+      "Compare access modes and node placement with the storage requirements."
+    ],
+    "evidence": "Claim state, volume event and node placement",
+    "escalation": "Storage and platform owners",
+    "provenance": "Authored educational runbook; not a historical incident or verbatim vendor procedure.",
+    "references": [
+      {
+        "title": "Kubernetes application troubleshooting",
+        "url": "https://kubernetes.io/docs/tasks/debug/debug-application/"
+      }
+    ]
+  }
+]

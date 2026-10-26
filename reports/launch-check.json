@@ -1,0 +1,10 @@
+{
+  "health": {
+    "status": 200,
+    "body": "ok"
+  },
+  "page": {
+    "status": 200,
+    "html_contains_streamlit": true
+  }
+}

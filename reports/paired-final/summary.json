@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-26T06:54:38.956400+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "logical_cpus": 9,
+  "memory": "MemTotal:       10206484 kB",
+  "cpu_quota": "800000 100000",
+  "memory_limit_bytes": "8589934592",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "sentence-transformers": "5.7.0",
+    "torch": "2.14.1",
+    "transformers": "5.20.2",
+    "streamlit": "1.66.1"
+  },
+  "seed": 20261026,
+  "repeats": 30,
+  "warmup_passes": 3,
+  "corpus_size": 22,
+  "supported_query_count": 22,
+  "unsupported_query_count": 6,
+  "freeze": {
+    "schema_version": 1,
+    "frozen_before_optimization": true,
+    "provenance": "Existing authored evaluation queries and verbatim runbook procedures; not held out. No query, label or threshold tuning. Human completion requires correct source and first three investigation steps; not live incident resolution.",
+    "sha256": {
+      "benchmarks/tasks.json": "04e207b1a1b5aaea6249a80d0c92a5b290fb4702ad14f81facd2d1e097ad9e6c",
+      "data/evaluation.json": "b316383229ab8ec30f3beba2c66d8d95eae51f78c5b1aba44b76390f089e0118",
+      "data/runbooks.json": "262423911bebb9c8f55cbacf0d5a069e5705981ad7a16dbda622c2c72c8e1209",
+      "benchmarks/baseline_retrieval.py": "6be9f1cd0288d03a3df15011d3e9130348282ee526f408dc224d9898d5f937a7"
+    }
+  },
+  "candidate_sha256": "985db6b626f763f02dd877ad5db2b18d838b8263ba48684d97791950f76b8496",
+  "method": "External perf_counter around search (validation, redaction, query encoding, ranking, scope). No result cache. Shared immutable fitted encoder/matrix; same process, seeded shuffled queries and randomized pair order. Warm-up excluded. Profiles separate from timing. No UI, LLM, network or human time. Percentiles: numpy linear interpolation. Recall macro-averaged over supported queries; repeats are not additional independent tasks.",
+  "results": {
+    "tfidf": {
+      "startup_ms_excluded": 15.488090000417287,
+      "threshold": 0.12,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu"
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 0.41826627975535213,
+        "median_ms": 0.37906649981778173,
+        "p95_ms": 0.6298016000982897,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 0.2742469190479824,
+        "median_ms": 0.24142750021383108,
+        "p95_ms": 0.42662849984935747,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    },
+    "semantic": {
+      "startup_ms_excluded": 9568.689780000113,
+      "threshold": 0.38,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu",
+        "threads": 9,
+        "resolved_revision": null
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 12.385412989292599,
+        "median_ms": 8.517751999988832,
+        "p95_ms": 27.08747700019103,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 11.289881907152578,
+        "median_ms": 8.11174649993518,
+        "p95_ms": 26.112231249840075,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    }
+  },
+  "unavailable": {},
+  "quality_differences": []
+}

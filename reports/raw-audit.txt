@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "rows": 3360,
+  "all_summary_metrics_recomputed": true,
+  "ranking_and_acceptance_changes": 0,
+  "max_absolute_score_difference": 2.384185791015625e-07
+}

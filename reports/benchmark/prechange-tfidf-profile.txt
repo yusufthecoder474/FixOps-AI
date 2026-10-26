@@ -1,0 +1,43 @@
+         1041001 function calls (1039881 primitive calls) in 0.579 seconds
+
+   Ordered by: cumulative time
+   List reduced from 213 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      560    0.009    0.000    0.582    0.001 baseline_retrieval.py:42(search)
+2240/1120    0.012    0.000    0.431    0.000 _param_validation.py:187(wrapper)
+      560    0.002    0.000    0.261    0.000 pairwise.py:1683(cosine_similarity)
+      560    0.001    0.000    0.240    0.000 text.py:2110(transform)
+     3360    0.022    0.000    0.227    0.000 validation.py:725(check_array)
+      560    0.008    0.000    0.174    0.000 text.py:1692(transform)
+     1680    0.012    0.000    0.162    0.000 _data.py:1951(normalize)
+     3360    0.009    0.000    0.152    0.000 validation.py:525(_ensure_sparse_format)
+     2800    0.013    0.000    0.107    0.000 _compressed.py:30(__init__)
+     3360    0.023    0.000    0.088    0.000 validation.py:103(_assert_all_finite)
+      560    0.002    0.000    0.061    0.000 pairwise.py:83(check_pairwise_arrays)
+      560    0.001    0.000    0.054    0.000 text.py:1408(transform)
+     1120    0.001    0.000    0.053    0.000 _data.py:94(copy)
+      560    0.008    0.000    0.053    0.000 text.py:1256(_count_vocab)
+     1120    0.002    0.000    0.050    0.000 _compressed.py:1175(_with_data)
+      560    0.003    0.000    0.050    0.000 extmath.py:166(safe_sparse_dot)
+      560    0.006    0.000    0.044    0.000 sparsefuncs.py:748(sparse_matmul_to_dense)
+     1120    0.001    0.000    0.043    0.000 inspect.py:3346(signature)
+     1120    0.001    0.000    0.042    0.000 inspect.py:3081(from_callable)
+      560    0.002    0.000    0.041    0.000 validation.py:2793(validate_data)
+     1120    0.005    0.000    0.041    0.000 inspect.py:2501(_signature_from_callable)
+   118160    0.022    0.000    0.040    0.000 {built-in method builtins.isinstance}
+     3360    0.005    0.000    0.040    0.000 _base.py:1525(_get_index_dtype)
+     1120    0.007    0.000    0.039    0.000 _param_validation.py:28(validate_parameter_constraints)
+      560    0.004    0.000    0.036    0.000 _csc.py:44(tocsr)
+     1120    0.011    0.000    0.033    0.000 inspect.py:2397(_signature_from_function)
+     3360    0.022    0.000    0.032    0.000 _sputils.py:264(get_index_dtype)
+     2800    0.009    0.000    0.031    0.000 _compressed.py:166(check_format)
+     3360    0.009    0.000    0.024    0.000 validation.py:371(_num_samples)
+      560    0.000    0.000    0.023    0.000 _base.py:390(T)
+      560    0.001    0.000    0.022    0.000 _csr.py:22(transpose)
+     3360    0.004    0.000    0.022    0.000 fromnumeric.py:2338(sum)
+     6720    0.007    0.000    0.020    0.000 _param_validation.py:104(make_constraint)
+     2800    0.009    0.000    0.020    0.000 _compressed.py:1118(prune)
+     1120    0.001    0.000    0.018    0.000 inspect.py:3275(bind)
+
+

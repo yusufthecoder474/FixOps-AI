@@ -1,0 +1,861 @@
+{
+  "timestamp": "2026-10-10T03:52:02.857427+00:00",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.3.5",
+    "scikit-learn": "1.8.0",
+    "sentence-transformers": "5.7.0",
+    "streamlit": "1.65.0"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dataset_sha256": "262423911bebb9c8f55cbacf0d5a069e5705981ad7a16dbda622c2c72c8e1209",
+  "evaluation_sha256": "b316383229ab8ec30f3beba2c66d8d95eae51f78c5b1aba44b76390f089e0118",
+  "method": "Macro Recall@3 over 22 supported questions; 6 unsupported excluded from recall. One warm timed request per question including query encoding, cosine ranking and scope check; no UI/LLM/network time. Startup measured separately. Authored smoke set, not an independent benchmark.",
+  "results": [
+    {
+      "status": "measured",
+      "backend": "tfidf",
+      "threshold": 0.12,
+      "startup_ms": 47.96377899998561,
+      "recall_at_3": 1.0,
+      "supported_acceptance_rate": 1.0,
+      "unsupported_rejection_rate": 1.0,
+      "latency_mean_ms": 0.35416792857136314,
+      "latency_p50_ms": 0.34845900000846086,
+      "latency_p95_ms": 0.4215098000088346,
+      "questions": [
+        {
+          "id": "Q-001",
+          "expected": [
+            "RB-001"
+          ],
+          "retrieved": [
+            "RB-001",
+            "RB-015",
+            "RB-021"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.46130399999810834
+        },
+        {
+          "id": "Q-002",
+          "expected": [
+            "RB-002"
+          ],
+          "retrieved": [
+            "RB-002",
+            "RB-001",
+            "RB-017"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.38801300001978234
+        },
+        {
+          "id": "Q-003",
+          "expected": [
+            "RB-003"
+          ],
+          "retrieved": [
+            "RB-003",
+            "RB-009",
+            "RB-001"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.43595500000037646
+        },
+        {
+          "id": "Q-004",
+          "expected": [
+            "RB-004"
+          ],
+          "retrieved": [
+            "RB-004",
+            "RB-015",
+            "RB-016"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.36551999994571815
+        },
+        {
+          "id": "Q-005",
+          "expected": [
+            "RB-005"
+          ],
+          "retrieved": [
+            "RB-005",
+            "RB-007",
+            "RB-020"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.38724199998796394
+        },
+        {
+          "id": "Q-006",
+          "expected": [
+            "RB-006"
+          ],
+          "retrieved": [
+            "RB-006",
+            "RB-003",
+            "RB-008"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.35320000000638174
+        },
+        {
+          "id": "Q-007",
+          "expected": [
+            "RB-007"
+          ],
+          "retrieved": [
+            "RB-007",
+            "RB-020",
+            "RB-005"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3476219999924979
+        },
+        {
+          "id": "Q-008",
+          "expected": [
+            "RB-008"
+          ],
+          "retrieved": [
+            "RB-008",
+            "RB-009",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.38498899999694913
+        },
+        {
+          "id": "Q-009",
+          "expected": [
+            "RB-009"
+          ],
+          "retrieved": [
+            "RB-009",
+            "RB-008",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3474920000030579
+        },
+        {
+          "id": "Q-010",
+          "expected": [
+            "RB-010"
+          ],
+          "retrieved": [
+            "RB-010",
+            "RB-021",
+            "RB-001"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3479130000414443
+        },
+        {
+          "id": "Q-011",
+          "expected": [
+            "RB-011"
+          ],
+          "retrieved": [
+            "RB-011",
+            "RB-012",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3790300000332536
+        },
+        {
+          "id": "Q-012",
+          "expected": [
+            "RB-012"
+          ],
+          "retrieved": [
+            "RB-012",
+            "RB-006",
+            "RB-014"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3267509999886897
+        },
+        {
+          "id": "Q-013",
+          "expected": [
+            "RB-013"
+          ],
+          "retrieved": [
+            "RB-013",
+            "RB-001",
+            "RB-002"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3217130000052748
+        },
+        {
+          "id": "Q-014",
+          "expected": [
+            "RB-014"
+          ],
+          "retrieved": [
+            "RB-014",
+            "RB-007",
+            "RB-001"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3946830000245427
+        },
+        {
+          "id": "Q-015",
+          "expected": [
+            "RB-015"
+          ],
+          "retrieved": [
+            "RB-015",
+            "RB-016",
+            "RB-020"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.32320599996182864
+        },
+        {
+          "id": "Q-016",
+          "expected": [
+            "RB-016"
+          ],
+          "retrieved": [
+            "RB-016",
+            "RB-001",
+            "RB-002"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3490049999754774
+        },
+        {
+          "id": "Q-017",
+          "expected": [
+            "RB-017"
+          ],
+          "retrieved": [
+            "RB-017",
+            "RB-003",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.33603500003209774
+        },
+        {
+          "id": "Q-018",
+          "expected": [
+            "RB-018"
+          ],
+          "retrieved": [
+            "RB-018",
+            "RB-003",
+            "RB-019"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.33213900002238006
+        },
+        {
+          "id": "Q-019",
+          "expected": [
+            "RB-019"
+          ],
+          "retrieved": [
+            "RB-019",
+            "RB-003",
+            "RB-018"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3541419999919526
+        },
+        {
+          "id": "Q-020",
+          "expected": [
+            "RB-020"
+          ],
+          "retrieved": [
+            "RB-020",
+            "RB-018",
+            "RB-017"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3320789999747831
+        },
+        {
+          "id": "Q-021",
+          "expected": [
+            "RB-021"
+          ],
+          "retrieved": [
+            "RB-021",
+            "RB-020",
+            "RB-014"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.31459199999517296
+        },
+        {
+          "id": "Q-022",
+          "expected": [
+            "RB-022"
+          ],
+          "retrieved": [
+            "RB-022",
+            "RB-014",
+            "RB-006"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 0.3529699999944569
+        },
+        {
+          "id": "Q-023",
+          "expected": [],
+          "retrieved": [
+            "RB-001",
+            "RB-002",
+            "RB-003"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.32359699997641656
+        },
+        {
+          "id": "Q-024",
+          "expected": [],
+          "retrieved": [
+            "RB-001",
+            "RB-002",
+            "RB-003"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.3079830000274342
+        },
+        {
+          "id": "Q-025",
+          "expected": [],
+          "retrieved": [
+            "RB-001",
+            "RB-002",
+            "RB-003"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.34988600003771353
+        },
+        {
+          "id": "Q-026",
+          "expected": [],
+          "retrieved": [
+            "RB-001",
+            "RB-002",
+            "RB-003"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.3306059999772515
+        },
+        {
+          "id": "Q-027",
+          "expected": [],
+          "retrieved": [
+            "RB-003",
+            "RB-018",
+            "RB-019"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.31754700000874436
+        },
+        {
+          "id": "Q-028",
+          "expected": [],
+          "retrieved": [
+            "RB-001",
+            "RB-002",
+            "RB-003"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 0.35148799997841706
+        }
+      ]
+    },
+    {
+      "status": "measured",
+      "backend": "semantic",
+      "threshold": 0.38,
+      "startup_ms": 38355.66408299997,
+      "recall_at_3": 1.0,
+      "supported_acceptance_rate": 1.0,
+      "unsupported_rejection_rate": 1.0,
+      "latency_mean_ms": 10.553621249999066,
+      "latency_p50_ms": 8.81451449998849,
+      "latency_p95_ms": 21.12161740001568,
+      "questions": [
+        {
+          "id": "Q-001",
+          "expected": [
+            "RB-001"
+          ],
+          "retrieved": [
+            "RB-001",
+            "RB-007",
+            "RB-015"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.815685999991274
+        },
+        {
+          "id": "Q-002",
+          "expected": [
+            "RB-002"
+          ],
+          "retrieved": [
+            "RB-002",
+            "RB-006",
+            "RB-014"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.127201999968747
+        },
+        {
+          "id": "Q-003",
+          "expected": [
+            "RB-003"
+          ],
+          "retrieved": [
+            "RB-003",
+            "RB-018",
+            "RB-009"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.130918000006204
+        },
+        {
+          "id": "Q-004",
+          "expected": [
+            "RB-004"
+          ],
+          "retrieved": [
+            "RB-004",
+            "RB-015",
+            "RB-010"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.392179999987093
+        },
+        {
+          "id": "Q-005",
+          "expected": [
+            "RB-005"
+          ],
+          "retrieved": [
+            "RB-005",
+            "RB-020",
+            "RB-001"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 7.652559000007386
+        },
+        {
+          "id": "Q-006",
+          "expected": [
+            "RB-006"
+          ],
+          "retrieved": [
+            "RB-006",
+            "RB-014",
+            "RB-009"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 20.916518999968048
+        },
+        {
+          "id": "Q-007",
+          "expected": [
+            "RB-007"
+          ],
+          "retrieved": [
+            "RB-007",
+            "RB-008",
+            "RB-014"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.878133999961847
+        },
+        {
+          "id": "Q-008",
+          "expected": [
+            "RB-008"
+          ],
+          "retrieved": [
+            "RB-008",
+            "RB-009",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.218589000023258
+        },
+        {
+          "id": "Q-009",
+          "expected": [
+            "RB-009"
+          ],
+          "retrieved": [
+            "RB-009",
+            "RB-008",
+            "RB-007"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.307665999983783
+        },
+        {
+          "id": "Q-010",
+          "expected": [
+            "RB-010"
+          ],
+          "retrieved": [
+            "RB-010",
+            "RB-022",
+            "RB-004"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.813342999985707
+        },
+        {
+          "id": "Q-011",
+          "expected": [
+            "RB-011"
+          ],
+          "retrieved": [
+            "RB-011",
+            "RB-012",
+            "RB-006"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.610277999991922
+        },
+        {
+          "id": "Q-012",
+          "expected": [
+            "RB-012"
+          ],
+          "retrieved": [
+            "RB-012",
+            "RB-013",
+            "RB-006"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.042234000015469
+        },
+        {
+          "id": "Q-013",
+          "expected": [
+            "RB-013"
+          ],
+          "retrieved": [
+            "RB-013",
+            "RB-012",
+            "RB-020"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.54609400002937
+        },
+        {
+          "id": "Q-014",
+          "expected": [
+            "RB-014"
+          ],
+          "retrieved": [
+            "RB-014",
+            "RB-006",
+            "RB-009"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.18126599998459
+        },
+        {
+          "id": "Q-015",
+          "expected": [
+            "RB-015"
+          ],
+          "retrieved": [
+            "RB-015",
+            "RB-017",
+            "RB-020"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 21.232055000041328
+        },
+        {
+          "id": "Q-016",
+          "expected": [
+            "RB-016"
+          ],
+          "retrieved": [
+            "RB-016",
+            "RB-015",
+            "RB-017"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 10.498615000017253
+        },
+        {
+          "id": "Q-017",
+          "expected": [
+            "RB-017"
+          ],
+          "retrieved": [
+            "RB-017",
+            "RB-015",
+            "RB-020"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.3074549999983
+        },
+        {
+          "id": "Q-018",
+          "expected": [
+            "RB-018"
+          ],
+          "retrieved": [
+            "RB-018",
+            "RB-019",
+            "RB-003"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 9.303960000011102
+        },
+        {
+          "id": "Q-019",
+          "expected": [
+            "RB-019"
+          ],
+          "retrieved": [
+            "RB-019",
+            "RB-003",
+            "RB-018"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.541073999992932
+        },
+        {
+          "id": "Q-020",
+          "expected": [
+            "RB-020"
+          ],
+          "retrieved": [
+            "RB-020",
+            "RB-017",
+            "RB-018"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.526171000028171
+        },
+        {
+          "id": "Q-021",
+          "expected": [
+            "RB-021"
+          ],
+          "retrieved": [
+            "RB-021",
+            "RB-009",
+            "RB-014"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.52738399998998
+        },
+        {
+          "id": "Q-022",
+          "expected": [
+            "RB-022"
+          ],
+          "retrieved": [
+            "RB-022",
+            "RB-015",
+            "RB-010"
+          ],
+          "recall_at_3": 1.0,
+          "expected_supported": true,
+          "accepted": true,
+          "latency_ms": 8.547472999964612
+        },
+        {
+          "id": "Q-023",
+          "expected": [],
+          "retrieved": [
+            "RB-013",
+            "RB-008",
+            "RB-020"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 11.046738999993977
+        },
+        {
+          "id": "Q-024",
+          "expected": [],
+          "retrieved": [
+            "RB-005",
+            "RB-011",
+            "RB-021"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 29.464503999975022
+        },
+        {
+          "id": "Q-025",
+          "expected": [],
+          "retrieved": [
+            "RB-020",
+            "RB-019",
+            "RB-010"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 9.289259000013317
+        },
+        {
+          "id": "Q-026",
+          "expected": [],
+          "retrieved": [
+            "RB-012",
+            "RB-021",
+            "RB-011"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 8.625110000025416
+        },
+        {
+          "id": "Q-027",
+          "expected": [],
+          "retrieved": [
+            "RB-010",
+            "RB-016",
+            "RB-015"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 8.105149000016354
+        },
+        {
+          "id": "Q-028",
+          "expected": [],
+          "retrieved": [
+            "RB-004",
+            "RB-001",
+            "RB-019"
+          ],
+          "recall_at_3": null,
+          "expected_supported": false,
+          "accepted": false,
+          "latency_ms": 10.853779000001396
+        }
+      ]
+    }
+  ]
+}

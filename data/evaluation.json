@@ -1,0 +1,214 @@
+[
+  {
+    "id": "Q-001",
+    "query": "Our checkout returns an internal server error 500 after deployment.",
+    "expected_sources": [
+      "RB-001"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-002",
+    "query": "The application processor is at 99 percent and CPU throttling is rising.",
+    "expected_sources": [
+      "RB-002"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-003",
+    "query": "Postgres SQL queries exceed the query deadline.",
+    "expected_sources": [
+      "RB-003"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-004",
+    "query": "The container ran out of memory and was OOMKilled.",
+    "expected_sources": [
+      "RB-004"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-005",
+    "query": "Service hostname lookups return NXDOMAIN.",
+    "expected_sources": [
+      "RB-005"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-006",
+    "query": "API p99 response time increased although requests still succeed.",
+    "expected_sources": [
+      "RB-006"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-007",
+    "query": "Customers get HTTP 503 and the service has no healthy endpoints.",
+    "expected_sources": [
+      "RB-007"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-008",
+    "query": "The reverse proxy returns 502 bad gateway for upstream responses.",
+    "expected_sources": [
+      "RB-008"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-009",
+    "query": "The gateway reports HTTP 504 while waiting on the backend.",
+    "expected_sources": [
+      "RB-009"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-010",
+    "query": "Writes fail with no space left on the filesystem.",
+    "expected_sources": [
+      "RB-010"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-011",
+    "query": "Clients report an expired TLS certificate during handshake.",
+    "expected_sources": [
+      "RB-011"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-012",
+    "query": "Protected API requests return 401 after a token expires.",
+    "expected_sources": [
+      "RB-012"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-013",
+    "query": "An authenticated user receives 403 permission denied.",
+    "expected_sources": [
+      "RB-013"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-014",
+    "query": "Our clients get HTTP 429 too many requests after a burst.",
+    "expected_sources": [
+      "RB-014"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-015",
+    "query": "Kubernetes shows CrashLoopBackOff and the container keeps restarting.",
+    "expected_sources": [
+      "RB-015"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-016",
+    "query": "Pods show ImagePullBackOff when fetching an image from the registry.",
+    "expected_sources": [
+      "RB-016"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-017",
+    "query": "A running pod is not ready because its readiness probe fails.",
+    "expected_sources": [
+      "RB-017"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-018",
+    "query": "Every database connection is busy and callers wait for the pool.",
+    "expected_sources": [
+      "RB-018"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-019",
+    "query": "Postgres transactions wait on locks held by another session.",
+    "expected_sources": [
+      "RB-019"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-020",
+    "query": "TCP connections to the application port are immediately refused.",
+    "expected_sources": [
+      "RB-020"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-021",
+    "query": "Network traffic has packet loss and TCP retransmissions.",
+    "expected_sources": [
+      "RB-021"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-022",
+    "query": "Pod events show FailedMount for a persistent volume claim.",
+    "expected_sources": [
+      "RB-022"
+    ],
+    "supported": true
+  },
+  {
+    "id": "Q-023",
+    "query": "How do I bake a chocolate cake?",
+    "expected_sources": [],
+    "supported": false
+  },
+  {
+    "id": "Q-024",
+    "query": "Who won the football match?",
+    "expected_sources": [],
+    "supported": false
+  },
+  {
+    "id": "Q-025",
+    "query": "Write a wedding poem.",
+    "expected_sources": [],
+    "supported": false
+  },
+  {
+    "id": "Q-026",
+    "query": "How do I reset a forgotten VPN password?",
+    "expected_sources": [],
+    "supported": false
+  },
+  {
+    "id": "Q-027",
+    "query": "How do I restore a deleted database backup?",
+    "expected_sources": [],
+    "supported": false
+  },
+  {
+    "id": "Q-028",
+    "query": "What is the stock price today?",
+    "expected_sources": [],
+    "supported": false
+  }
+]

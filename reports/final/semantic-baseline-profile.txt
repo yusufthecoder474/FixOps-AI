@@ -1,0 +1,43 @@
+         2827307 function calls (2606102 primitive calls) in 7.618 seconds
+
+   Ordered by: cumulative time
+   List reduced from 435 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      280    0.005    0.000    7.328    0.026 grad_mode.py:294(__exit__)
+      280    0.006    0.000    7.304    0.026 decorators.py:29(wrapper)
+      280    0.023    0.000    7.292    0.026 model.py:483(encode)
+32480/280    0.039    0.000    6.152    0.022 module.py:1779(_wrapped_call_impl)
+32480/280    0.076    0.000    6.151    0.022 module.py:1787(_call_impl)
+      280    0.004    0.000    6.150    0.022 model.py:502(forward)
+      280    0.008    0.000    6.064    0.022 transformer.py:1149(forward)
+      280    0.005    0.000    6.047    0.022 generic.py:1019(wrapper)
+      280    0.005    0.000    6.035    0.022 output_capturing.py:250(wrapper)
+      280    0.006    0.000    6.017    0.021 modeling_bert.py:620(forward)
+      280    0.008    0.000    5.284    0.019 modeling_bert.py:425(forward)
+     1680    0.004    0.000    5.238    0.003 modeling_layers.py:82(__call__)
+     1680    0.006    0.000    5.224    0.003 modeling_bert.py:374(forward)
+    10360    0.010    0.000    3.389    0.000 linear.py:130(forward)
+    10360    3.371    0.000    3.371    0.000 {built-in method torch._C._nn.linear}
+     1680    0.006    0.000    2.893    0.002 modeling_bert.py:304(forward)
+     1680    0.006    0.000    2.318    0.001 pytorch_utils.py:124(apply_chunking_to_forward)
+     1680    0.004    0.000    2.186    0.001 modeling_bert.py:413(feed_forward_chunk)
+     1680    0.046    0.000    2.080    0.001 modeling_bert.py:164(forward)
+     3640    0.009    0.000    1.267    0.000 normalization.py:227(forward)
+     3640    0.012    0.000    1.255    0.000 functional.py:2972(layer_norm)
+     3640    1.240    0.000    1.240    0.000 {built-in method torch.layer_norm}
+     1680    0.005    0.000    1.098    0.001 modeling_bert.py:334(forward)
+     1680    0.021    0.000    1.068    0.001 modeling_bert.py:347(forward)
+     1680    0.027    0.000    0.789    0.000 modeling_bert.py:289(forward)
+      280    0.021    0.000    0.607    0.002 modeling_bert.py:68(forward)
+      280    0.001    0.000    0.597    0.002 module.py:1259(to)
+34720/280    0.206    0.000    0.595    0.002 module.py:930(_apply)
+     1680    0.012    0.000    0.350    0.000 sdpa_attention.py:80(sdpa_attention_forward)
+     1680    0.001    0.000    0.345    0.000 activations.py:88(forward)
+     1680    0.344    0.000    0.344    0.000 {built-in method torch._C._nn.gelu}
+     1680    0.325    0.000    0.325    0.000 {built-in method torch._C._nn.scaled_dot_product_attention}
+  840/280    0.007    0.000    0.283    0.001 _param_validation.py:187(wrapper)
+      280    0.000    0.000    0.260    0.001 module.py:2916(eval)
+34720/280    0.046    0.000    0.260    0.001 module.py:2894(train)
+
+

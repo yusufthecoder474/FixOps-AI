@@ -1,0 +1,66 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4785.00it/s]
+{
+  "results": {
+    "tfidf": {
+      "startup_ms_excluded": 15.488090000417287,
+      "threshold": 0.12,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu"
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 0.41826627975535213,
+        "median_ms": 0.37906649981778173,
+        "p95_ms": 0.6298016000982897,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 0.2742469190479824,
+        "median_ms": 0.24142750021383108,
+        "p95_ms": 0.42662849984935747,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    },
+    "semantic": {
+      "startup_ms_excluded": 9568.689780000113,
+      "threshold": 0.38,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu",
+        "threads": 9,
+        "resolved_revision": null
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 12.385412989292599,
+        "median_ms": 8.517751999988832,
+        "p95_ms": 27.08747700019103,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 11.289881907152578,
+        "median_ms": 8.11174649993518,
+        "p95_ms": 26.112231249840075,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    }
+  },
+  "unavailable": {},
+  "quality_differences": []
+}

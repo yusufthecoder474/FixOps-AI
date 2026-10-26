@@ -1,0 +1,77 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3791.95it/s]
+{
+  "results": {
+    "tfidf": {
+      "startup_ms_excluded": 16.082900000128575,
+      "threshold": 0.12,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu"
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 0.4219285345237993,
+        "median_ms": 0.38313699997161166,
+        "p95_ms": 0.6200741999919045,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 0.26871115357737707,
+        "median_ms": 0.23833249974813953,
+        "p95_ms": 0.40681080010926945,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    },
+    "semantic": {
+      "startup_ms_excluded": 4294.795628999964,
+      "threshold": 0.38,
+      "model": {
+        "configured_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "device": "cpu",
+        "threads": 9,
+        "resolved_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "snapshot_directory": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "artifact_sha256": {
+          "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+          "config_sentence_transformers.json": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+          "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+          "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+          "sentence_bert_config.json": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+          "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+          "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+          "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+          "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3"
+        }
+      },
+      "baseline": {
+        "measurements": 840,
+        "mean_ms": 18.702924579754598,
+        "median_ms": 14.717178499950023,
+        "p95_ms": 37.249742000085455,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      },
+      "optimized": {
+        "measurements": 840,
+        "mean_ms": 17.753006721426075,
+        "median_ms": 14.26825349972205,
+        "p95_ms": 37.971877599738896,
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "supported_acceptance_rate": 1.0,
+        "unsupported_rejection_rate": 1.0
+      }
+    }
+  },
+  "unavailable": {},
+  "quality_differences": []
+}

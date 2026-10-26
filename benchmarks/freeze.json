@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "frozen_before_optimization": true,
+  "provenance": "Existing authored evaluation queries and verbatim runbook procedures; not held out. No query, label or threshold tuning. Human completion requires correct source and first three investigation steps; not live incident resolution.",
+  "sha256": {
+    "benchmarks/tasks.json": "04e207b1a1b5aaea6249a80d0c92a5b290fb4702ad14f81facd2d1e097ad9e6c",
+    "data/evaluation.json": "b316383229ab8ec30f3beba2c66d8d95eae51f78c5b1aba44b76390f089e0118",
+    "data/runbooks.json": "262423911bebb9c8f55cbacf0d5a069e5705981ad7a16dbda622c2c72c8e1209",
+    "benchmarks/baseline_retrieval.py": "6be9f1cd0288d03a3df15011d3e9130348282ee526f408dc224d9898d5f937a7"
+  }
+}
